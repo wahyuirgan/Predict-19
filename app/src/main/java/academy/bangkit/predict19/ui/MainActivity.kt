@@ -1,5 +1,6 @@
-package academy.bangkit.predict19
+package academy.bangkit.predict19.ui
 
+import academy.bangkit.predict19.R
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -31,7 +32,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_prediction, R.id.navigation_help, R.id.navigation_account
+                R.id.navigation_home,
+                R.id.navigation_prediction,
+                R.id.navigation_help,
+                R.id.navigation_account
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

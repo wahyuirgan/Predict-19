@@ -1,7 +1,7 @@
 package academy.bangkit.predict19.ui.login
 
-import academy.bangkit.predict19.MainActivity
-import academy.bangkit.predict19.RegisterActivity
+import academy.bangkit.predict19.ui.MainActivity
+import academy.bangkit.predict19.ui.RegisterActivity
 import academy.bangkit.predict19.databinding.ActivityLoginBinding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
-            Toast.makeText(this, "Login", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show()
         }
 
         binding.tvSignup.setOnClickListener {

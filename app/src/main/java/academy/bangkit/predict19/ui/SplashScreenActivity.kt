@@ -1,4 +1,4 @@
-package academy.bangkit.predict19
+package academy.bangkit.predict19.ui
 
 import academy.bangkit.predict19.databinding.ActivitySplashScreenBinding
 import academy.bangkit.predict19.ui.login.LoginActivity
