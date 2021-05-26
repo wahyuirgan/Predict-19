@@ -1,6 +1,7 @@
 package academy.bangkit.predict19
 
 import academy.bangkit.predict19.databinding.ActivityRegisterBinding
+import academy.bangkit.predict19.ui.login.LoginActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

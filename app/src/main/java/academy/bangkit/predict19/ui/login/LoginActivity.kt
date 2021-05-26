@@ -1,5 +1,7 @@
-package academy.bangkit.predict19
+package academy.bangkit.predict19.ui.login
 
+import academy.bangkit.predict19.MainActivity
+import academy.bangkit.predict19.RegisterActivity
 import academy.bangkit.predict19.databinding.ActivityLoginBinding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
