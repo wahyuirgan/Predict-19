@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Predict 19</string>
+    <string name="title_home">Home</string>
+    <string name="title_prediction">Predict</string>
+    <string name="title_help">Help</string>
+    <string name="title_account">Account</string>
+    <string name="splash_screen">Splash Screen</string>
+    <string name="label_sign_in">Sign In</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="label_login">Login</string>
+    <string name="label_or">OR</string>
+    <string name="label_login_google">Sign In with Google</string>
+    <string name="label_register_button">
+        <font color="#000000">Don\u0027t have account?</font>
+        <font color="#00ADB5">Get started here</font>
+    </string>
+    <string name="label_register">Register</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="label_have_account_button">
+        <font color="#000000">Already have account?</font>
+        <font color="#00ADB5">Login here</font>
+    </string>
+    <string name="hint_re_password">Re-Type Password</string>
+    <string name="label_agreement"><u>I Accept the User Agreement</u></string>
+</resources>

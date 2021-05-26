@@ -1,0 +1,2 @@
+rootProject.name = "Predict 19"
+include ':app'

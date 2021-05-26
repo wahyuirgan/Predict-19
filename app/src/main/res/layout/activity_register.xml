@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_20dp">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_app_logo"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:contentDescription="@string/splash_screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:viewBindingIgnore="true" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_10dp"
+            android:layout_marginStart="@dimen/margin_10dp"
+            app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+            app:cardBackgroundColor="@color/colorTopCardLogin"
+            app:cardCornerRadius="@dimen/corner_radius_10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_20dp"
+                    android:text="@string/label_register"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_30sp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtNameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        app:hintEnabled="false"
+                        app:errorEnabled="true">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etNameSignup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:paddingStart="@dimen/padding_5dp"
+                            android:paddingEnd="@dimen/padding_5dp"
+                            android:textColor="@color/colorHintLogin"
+                            android:textSize="@dimen/text_size_15sp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:hint="@string/hint_name"
+                            android:textColorHint="@drawable/edittext_selector"
+                            android:inputType="text"
+                            tools:targetApi="m"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtEmailLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        app:hintEnabled="false"
+                        app:errorEnabled="true">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etEmailSignup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:paddingStart="@dimen/padding_5dp"
+                            android:paddingEnd="@dimen/padding_5dp"
+                            android:textColor="@color/colorHintLogin"
+                            android:textSize="@dimen/text_size_15sp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:hint="@string/hint_email"
+                            android:textColorHint="@drawable/edittext_selector"
+                            android:inputType="textEmailAddress"
+                            tools:targetApi="m"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtPassLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        app:errorEnabled="true"
+                        app:hintEnabled="false"
+                        app:passwordToggleEnabled="true">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etPassSignup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:hint="@string/hint_password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:paddingStart="@dimen/padding_5dp"
+                            android:paddingEnd="@dimen/padding_5dp"
+                            android:textColor="@color/colorHintLogin"
+                            android:textColorHint="@drawable/edittext_selector"
+                            android:textSize="@dimen/text_size_15sp"
+                            app:backgroundTint="@android:color/darker_gray"
+                            tools:targetApi="m" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtRePassLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        app:errorEnabled="true"
+                        app:hintEnabled="false"
+                        app:passwordToggleEnabled="true">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etRePassSignup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:hint="@string/hint_re_password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:paddingStart="@dimen/padding_5dp"
+                            android:paddingEnd="@dimen/padding_5dp"
+                            android:textColor="@color/colorHintLogin"
+                            android:textColorHint="@drawable/edittext_selector"
+                            android:textSize="@dimen/text_size_15sp"
+                            app:backgroundTint="@android:color/darker_gray"
+                            tools:targetApi="m" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <CheckBox
+                        android:id="@+id/cbAgreement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        android:text="@string/label_agreement"
+                        android:fontFamily="@font/montserrat_bold" />
+
+                    <Button
+                        android:id="@+id/btnLogin"
+                        android:background="@color/colorTopCardLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_18pt"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin_24dp"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        android:text="@string/label_register"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textSize="@dimen/text_size_14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvHaveAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/margin_28dp"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        android:text="@string/label_have_account_button"
+                        android:fontFamily="@font/montserrat_bold"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

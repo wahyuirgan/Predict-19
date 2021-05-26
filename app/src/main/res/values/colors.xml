@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#FF4081</color>
+    <color name="header">#101010</color>
+    <color name="toolbar_background">#308287</color>
+    <color name="background_app_color">#00ADB5</color>
+    <color name="colorYellow">#FFFF00</color>
+    <color name="colorHomePager">#00FDA2</color>
+    <color name="colorTopCardLogin">#393E46</color>
+    <color name="colorHintLogin">#383838</color>
+    <color name="colorLoginGoogle">#AAAAAA</color>
+</resources>
