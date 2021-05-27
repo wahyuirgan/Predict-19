@@ -54,8 +54,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
+    //Firestore dependencies
+    implementation "com.google.firebase:firebase-firestore:23.0.0"
+
     // Koin dependencies
-    implementation "io.insert-koin:koin-android:3.0.1"
+    implementation 'io.insert-koin:koin-android:3.0.2'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

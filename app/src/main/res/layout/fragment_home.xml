@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/background_app_color"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary">
+        android:background="@color/background_app_color">
 
         <LinearLayout
             android:id="@+id/layoutHeader"
@@ -36,7 +36,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
             android:text="Information"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
 
@@ -56,7 +56,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/primary_dark"
+                app:cardBackgroundColor="@color/toolbar_background"
                 app:cardCornerRadius="12dp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Name"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toTopOf="@id/imageName" />
 
@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="John Doe"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
 
@@ -99,7 +99,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/primary_dark"
+                app:cardBackgroundColor="@color/toolbar_background"
                 app:cardCornerRadius="12dp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Age"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toTopOf="@id/imageName" />
 
@@ -126,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="24 Years Old"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
 
@@ -152,7 +152,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/primary_dark"
+                app:cardBackgroundColor="@color/toolbar_background"
                 app:cardCornerRadius="12dp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -168,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Checked At"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toTopOf="@id/imageName" />
 
@@ -179,7 +179,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="26 Mei 2021"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
 
@@ -195,7 +195,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/primary_dark"
+                app:cardBackgroundColor="@color/toolbar_background"
                 app:cardCornerRadius="12dp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -211,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Covid Status"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toTopOf="@id/imageName" />
 
@@ -222,7 +222,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Positive Covid-19"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
 
@@ -240,7 +240,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Oxygen Prediction"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutInformation2" />
 
@@ -258,7 +258,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="12dp"
-                app:cardBackgroundColor="@color/primary"
+                app:cardBackgroundColor="@color/background_app_color"
                 app:cardCornerRadius="68dp">
 
                 <TextView
@@ -266,7 +266,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="80%"
-                    android:textColor="@color/white"
+                    android:textColor="@android:color/white"
                     android:textSize="36sp"
                     android:textStyle="bold" />
 
@@ -281,7 +281,7 @@
             android:layout_margin="16dp"
             android:text="Prediksi oksigen menyatakan 80% sehingga perkiraan waktu hanya dalam 96 jam"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             app:layout_constraintTop_toBottomOf="@id/circleOxygen" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

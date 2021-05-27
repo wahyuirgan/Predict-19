@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/background_app_color"
     tools:context=".ui.account.AccountFragment">
 
     <LinearLayout
@@ -39,7 +39,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="160dp"
         android:layout_height="48dp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@android:color/black"
         app:cardCornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="@id/layoutHeader"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Edit"
-            android:textColor="@color/white" />
+            android:textColor="@android:color/white" />
 
     </androidx.cardview.widget.CardView>
 
@@ -64,7 +64,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
         android:text="Account Info"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
 
@@ -73,7 +73,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         android:src="@drawable/ic_baseline_person_24"
         app:layout_constraintStart_toStartOf="@id/textAccountInfo"
         app:layout_constraintTop_toBottomOf="@id/textAccountInfo" />
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Name"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@id/imageName"
         app:layout_constraintTop_toTopOf="@id/imageName" />
 
@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="John Doe"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@id/imageName"
         app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
 
@@ -107,7 +107,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageName" />
@@ -117,7 +117,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         android:src="@drawable/ic_baseline_email_24"
         app:layout_constraintStart_toStartOf="@id/textAccountInfo"
         app:layout_constraintTop_toBottomOf="@id/lineName" />
@@ -129,7 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Email"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@id/imageEmail"
         app:layout_constraintTop_toTopOf="@id/imageEmail" />
 
@@ -140,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="john@doe.com"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@id/imageEmail"
         app:layout_constraintTop_toBottomOf="@id/textEmailTitle" />
 
@@ -151,7 +151,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageEmail" />
@@ -161,7 +161,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         android:src="@drawable/ic_baseline_memory_24"
         app:layout_constraintStart_toStartOf="@id/lineEmail"
         app:layout_constraintTop_toBottomOf="@id/lineEmail" />
@@ -173,7 +173,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Age"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@id/imageAge"
         app:layout_constraintTop_toTopOf="@id/imageAge" />
 
@@ -184,7 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="24 Years Old"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@id/imageAge"
         app:layout_constraintTop_toBottomOf="@id/textAgeTitle" />
 
@@ -194,7 +194,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageAge" />

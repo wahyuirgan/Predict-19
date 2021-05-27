@@ -24,4 +24,7 @@
     </string>
     <string name="hint_re_password">Re-Type Password</string>
     <string name="label_agreement"><u>I Accept the User Agreement</u></string>
+    <string name="request_canceled">Request Cancel</string>
+    <string name="registration_successful">Registration Successful</string>
+    <string name="login_successful">Login Successful</string>
 </resources>

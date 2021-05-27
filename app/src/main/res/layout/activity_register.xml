@@ -181,7 +181,7 @@
                         android:fontFamily="@font/montserrat_bold" />
 
                     <Button
-                        android:id="@+id/btnLogin"
+                        android:id="@+id/btnRegister"
                         android:background="@color/colorTopCardLogin"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_18pt"
