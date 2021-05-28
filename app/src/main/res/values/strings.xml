@@ -46,4 +46,8 @@
     <string name="notif_email_verify_send">Registration Successful, Verification Email Sent!</string>
     <string name="notif_email_verify_unsend">Undeliverable Verification Email!</string>
     <string name="notif_permission">Please accept for required permissions</string>
+    <string name="label_logout">Logout</string>
+    <string name="label_age">Age</string>
+    <string name="label_information">Information</string>
+    <string name="label_edit">Edit</string>
 </resources>

@@ -15,54 +15,55 @@ import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private var _binding: ActivityLoginBinding? = null
+    private val binding get() = _binding
 
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        _binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        binding.btnLogin.setOnClickListener {
-            binding.btnLogin.isEnabled = false
-            binding.btnGoogleLogin.isEnabled = false
-            binding.tvSignup.isEnabled = false
-            binding.mainProgressbarLogin.visibility = View.VISIBLE
+        binding?.btnLogin?.setOnClickListener {
+            binding?.btnLogin?.isEnabled = false
+            binding?.btnGoogleLogin?.isEnabled = false
+            binding?.tvSignup?.isEnabled = false
+            binding?.mainProgressbarLogin?.visibility = View.VISIBLE
 
-            val email: String = binding.etEmailLogin.text.toString()
-            val password: String = binding.etPassLogin.text.toString()
+            val email: String = binding?.etEmailLogin?.text.toString()
+            val password: String = binding?.etPassLogin?.text.toString()
 
             val emailPattern = Pattern.compile("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
 
             when {
                 email.isEmpty() -> {
-                    binding.etEmailLogin.error = getString(R.string.notif_email_empty)
-                    binding.btnLogin.isEnabled = true
-                    binding.btnGoogleLogin.isEnabled = true
-                    binding.tvSignup.isEnabled = true
-                    binding.mainProgressbarLogin.visibility = View.GONE
+                    binding?.etEmailLogin?.error = getString(R.string.notif_email_empty)
+                    binding?.btnLogin?.isEnabled = true
+                    binding?.btnGoogleLogin?.isEnabled = true
+                    binding?.tvSignup?.isEnabled = true
+                    binding?.mainProgressbarLogin?.visibility = View.GONE
                 }
                 !emailPattern.matcher(email).matches() -> {
-                    binding.etEmailLogin.error = getString(R.string.notif_email_invalid)
-                    binding.btnLogin.isEnabled = true
-                    binding.btnGoogleLogin.isEnabled = true
-                    binding.tvSignup.isEnabled = true
-                    binding.mainProgressbarLogin.visibility = View.GONE
+                    binding?.etEmailLogin?.error = getString(R.string.notif_email_invalid)
+                    binding?.btnLogin?.isEnabled = true
+                    binding?.btnGoogleLogin?.isEnabled = true
+                    binding?.tvSignup?.isEnabled = true
+                    binding?.mainProgressbarLogin?.visibility = View.GONE
                 }
                 password.isEmpty() -> {
-                    binding.etPassLogin.error = getString(R.string.notif_pass_empty)
-                    binding.btnLogin.isEnabled = true
-                    binding.btnGoogleLogin.isEnabled = true
-                    binding.tvSignup.isEnabled = true
-                    binding.mainProgressbarLogin.visibility = View.GONE
+                    binding?.etPassLogin?.error = getString(R.string.notif_pass_empty)
+                    binding?.btnLogin?.isEnabled = true
+                    binding?.btnGoogleLogin?.isEnabled = true
+                    binding?.tvSignup?.isEnabled = true
+                    binding?.mainProgressbarLogin?.visibility = View.GONE
                 }
                 password.length < 8 -> {
-                    binding.etPassLogin.error = getString(R.string.notif_pass_less_than_eight)
-                    binding.btnLogin.isEnabled = true
-                    binding.btnGoogleLogin.isEnabled = true
-                    binding.tvSignup.isEnabled = true
-                    binding.mainProgressbarLogin.visibility = View.GONE
+                    binding?.etPassLogin?.error = getString(R.string.notif_pass_less_than_eight)
+                    binding?.btnLogin?.isEnabled = true
+                    binding?.btnGoogleLogin?.isEnabled = true
+                    binding?.tvSignup?.isEnabled = true
+                    binding?.mainProgressbarLogin?.visibility = View.GONE
                 }
                 else -> {
                     loginProcess(email, password)
@@ -70,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        binding.tvSignup.setOnClickListener {
+        binding?.tvSignup?.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
@@ -82,10 +83,10 @@ class LoginActivity : AppCompatActivity() {
             this) { task ->
             if (task.isSuccessful) {
                 checkEmailVerification()
-                binding.btnLogin.isEnabled = true
-                binding.btnGoogleLogin.isEnabled = true
-                binding.tvSignup.isEnabled = true
-                binding.mainProgressbarLogin.visibility = View.GONE
+                binding?.btnLogin?.isEnabled = true
+                binding?.btnGoogleLogin?.isEnabled = true
+                binding?.tvSignup?.isEnabled = true
+                binding?.mainProgressbarLogin?.visibility = View.GONE
                 finishAffinity()
             } else {
                 Toast.makeText(
@@ -93,10 +94,10 @@ class LoginActivity : AppCompatActivity() {
                     task.exception?.message,
                     Toast.LENGTH_SHORT
                 ).show()
-                binding.btnLogin.isEnabled = true
-                binding.btnGoogleLogin.isEnabled = true
-                binding.tvSignup.isEnabled = true
-                binding.mainProgressbarLogin.visibility = View.GONE
+                binding?.btnLogin?.isEnabled = true
+                binding?.btnGoogleLogin?.isEnabled = true
+                binding?.tvSignup?.isEnabled = true
+                binding?.mainProgressbarLogin?.visibility = View.GONE
             }
         }
     }
@@ -127,4 +128,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

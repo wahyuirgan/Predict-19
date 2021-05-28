@@ -61,15 +61,15 @@
 
                     <RelativeLayout
                         android:id="@+id/layoutImageProfileSignup"
-                        android:layout_width="190dp"
+                        android:layout_width="@dimen/width_190dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_20dp"
                         android:layout_centerHorizontal="true">
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/ivProfileSignup"
-                            android:layout_width="190dp"
-                            android:layout_height="190dp"
+                            android:layout_width="@dimen/width_190dp"
+                            android:layout_height="@dimen/height_190dp"
                             android:src="@drawable/ic_profile_signup"/>
 
                         <com.google.android.material.floatingactionbutton.FloatingActionButton

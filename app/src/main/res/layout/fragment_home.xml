@@ -4,27 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app_color"
+    android:scrollbars="none"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_app_color">
+        android:paddingBottom="@dimen/padding_20dp">
 
         <LinearLayout
             android:id="@+id/layoutHeader"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginEnd="@dimen/margin_5dp"
+            android:layout_marginStart="@dimen/margin_5dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
             android:background="@drawable/bg_home_header"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="98dp"
-                android:layout_height="98dp"
-                android:src="@drawable/ic_baseline_account_circle_24" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/width_190dp"
+                android:layout_height="@dimen/height_190dp"
+                android:layout_margin="@dimen/margin_20dp"
+                android:src="@drawable/ic_profile_signup" />
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_20sp"
+                android:fontFamily="@font/montserrat_bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_marginBottom="@dimen/margin_20dp"
+                android:text="@string/label_sub_welcome"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/montserrat_regular"/>
 
         </LinearLayout>
 
@@ -34,14 +60,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:text="Information"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="@string/label_information"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
 
         <LinearLayout
-            android:id="@+id/layoutInformation1"
+            android:id="@+id/layoutInformationOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -71,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Name"
+                        android:text="@string/hint_name"
                         android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toTopOf="@id/imageName" />
@@ -114,7 +140,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Age"
+                        android:text="@string/label_age"
                         android:textColor="@android:color/white"
                         app:layout_constraintStart_toEndOf="@id/imageName"
                         app:layout_constraintTop_toTopOf="@id/imageName" />
@@ -137,12 +163,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layoutInformation2"
+            android:id="@+id/layoutInformationTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
-            app:layout_constraintTop_toBottomOf="@id/layoutInformation1">
+            app:layout_constraintTop_toBottomOf="@id/layoutInformationOne">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -242,7 +268,7 @@
             android:text="Oxygen Prediction"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutInformation2" />
+            app:layout_constraintTop_toBottomOf="@id/layoutInformationTwo" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/circleOxygen"

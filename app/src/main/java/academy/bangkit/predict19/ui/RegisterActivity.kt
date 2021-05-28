@@ -37,7 +37,8 @@ import java.util.regex.Pattern
 @RequiresApi(Build.VERSION_CODES.P)
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityRegisterBinding
+    private var _binding: ActivityRegisterBinding? = null
+    private val binding get() = _binding
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     private lateinit var name: String
@@ -53,14 +54,13 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        _binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        binding.btnImagePlus.setOnClickListener {
+        binding?.btnImagePlus?.setOnClickListener {
             if (Build.VERSION.SDK_INT >= 22){
                 checkAndRequestForPermission()
-            }
-            else {
+            } else {
                 openGallery()
             }
 
@@ -73,8 +73,8 @@ class RegisterActivity : AppCompatActivity() {
 
         val materialDatePicker = materialDateBuilder.build()
 
-        binding.btnDateSignup.setOnClickListener {
-            binding.tvDateSignup.error = null
+        binding?.btnDateSignup?.setOnClickListener {
+            binding?.tvDateSignup?.error = null
             materialDatePicker.show(supportFragmentManager, "Material Date Picker")
         }
 
@@ -82,82 +82,82 @@ class RegisterActivity : AppCompatActivity() {
 
             val changeDate = changeDateFormat(materialDatePicker.headerText)
 
-            binding.tvDateSignup.text = changeDate
+            binding?.tvDateSignup?.text = changeDate
         }
 
-        binding.btnRegister.setOnClickListener {
-            binding.btnRegister.isEnabled = false
-            binding.tvHaveAccount.isEnabled = false
-            binding.mainProgressbarRegister.visibility = View.VISIBLE
+        binding?.btnRegister?.setOnClickListener {
+            binding?.btnRegister?.isEnabled = false
+            binding?.tvHaveAccount?.isEnabled = false
+            binding?.mainProgressbarRegister?.visibility = View.VISIBLE
 
-            name = binding.etNameSignup.text.toString()
-            email = binding.etEmailSignup.text.toString()
-            dateBirth = binding.tvDateSignup.text.toString()
-            password = binding.etPassSignup.text.toString()
-            rePassword = binding.etRePassSignup.text.toString()
+            name = binding?.etNameSignup?.text.toString()
+            email = binding?.etEmailSignup?.text.toString()
+            dateBirth = binding?.tvDateSignup?.text.toString()
+            password = binding?.etPassSignup?.text.toString()
+            rePassword = binding?.etRePassSignup?.text.toString()
 
             val emailPattern = Pattern.compile("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
 
             when {
                 pickedImgUri == null -> {
                     Toast.makeText(this, getString(R.string.notif_image_profile_not_picked), Toast.LENGTH_SHORT).show()
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 name.isEmpty() -> {
-                    binding.etNameSignup.error = getString(R.string.notif_name_empty)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.etNameSignup?.error = getString(R.string.notif_name_empty)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 dateBirth.isEmpty() -> {
-                    binding.tvDateSignup.error = getString(R.string.notif_date_birth_empty)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.tvDateSignup?.error = getString(R.string.notif_date_birth_empty)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 email.isEmpty() -> {
-                    binding.etEmailSignup.error = getString(R.string.notif_email_empty)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.etEmailSignup?.error = getString(R.string.notif_email_empty)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 !emailPattern.matcher(email).matches() -> {
-                    binding.etEmailSignup.error = getString(R.string.notif_email_invalid)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.etEmailSignup?.error = getString(R.string.notif_email_invalid)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 password.isEmpty() -> {
-                    binding.etPassSignup.error = getString(R.string.notif_pass_empty)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.etPassSignup?.error = getString(R.string.notif_pass_empty)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 rePassword.isEmpty() -> {
-                    binding.etRePassSignup.error = getString(R.string.notif_pass_empty)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.etRePassSignup?.error = getString(R.string.notif_pass_empty)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 password.length < 8 -> {
-                    binding.etPassSignup.error = getString(R.string.notif_pass_less_than_eight)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.etPassSignup?.error = getString(R.string.notif_pass_less_than_eight)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 password != rePassword -> {
-                    binding.etRePassSignup.error = getString(R.string.notif_re_pass_not_same)
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.etRePassSignup?.error = getString(R.string.notif_re_pass_not_same)
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
-                !binding.cbAgreement.isChecked -> {
+                binding?.cbAgreement?.isChecked == false -> {
                     Toast.makeText(this, getString(R.string.notif_agreement_not_checked), Toast.LENGTH_SHORT).show()
-                    binding.btnRegister.isEnabled = true
-                    binding.tvHaveAccount.isEnabled = true
-                    binding.mainProgressbarRegister.visibility = View.GONE
+                    binding?.btnRegister?.isEnabled = true
+                    binding?.tvHaveAccount?.isEnabled = true
+                    binding?.mainProgressbarRegister?.visibility = View.GONE
                 }
                 else -> {
                     createUserAccount(email, name, password)
@@ -165,7 +165,7 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        binding.tvHaveAccount.setOnClickListener {
+        binding?.tvHaveAccount?.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -178,7 +178,7 @@ class RegisterActivity : AppCompatActivity() {
         ) { task ->
             if (task.isSuccessful) {
 
-                dateBirth = binding.tvDateSignup.text.toString()
+                dateBirth = binding?.tvDateSignup?.text.toString()
 
                 Toast.makeText(
                     this@RegisterActivity,
@@ -204,9 +204,9 @@ class RegisterActivity : AppCompatActivity() {
                     getString(R.string.notif_account_created_fail).plus(" ").plus(task.exception?.message),
                     Toast.LENGTH_SHORT
                 ).show()
-                binding.btnRegister.visibility = View.VISIBLE
-                binding.tvHaveAccount.visibility = View.VISIBLE
-                binding.mainProgressbarRegister.visibility = View.GONE
+                binding?.btnRegister?.isEnabled = true
+                binding?.tvHaveAccount?.isEnabled = true
+                binding?.mainProgressbarRegister?.visibility = View.GONE
             }
         }
     }
@@ -231,9 +231,9 @@ class RegisterActivity : AppCompatActivity() {
                                 getString(R.string.notif_register_success),
                                 Toast.LENGTH_LONG
                             ).show()
-                            binding.btnRegister.isEnabled = true
-                            binding.tvHaveAccount.isEnabled = true
-                            binding.mainProgressbarRegister.visibility = View.GONE
+                            binding?.btnRegister?.isEnabled = true
+                            binding?.tvHaveAccount?.isEnabled = true
+                            binding?.mainProgressbarRegister?.visibility = View.GONE
                             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
                         }
                     }
@@ -252,9 +252,9 @@ class RegisterActivity : AppCompatActivity() {
                 ).show()
                 firebaseAuth.signOut()
                 finishAffinity()
-                binding.btnRegister.isEnabled = true
-                binding.tvHaveAccount.isEnabled = true
-                binding.mainProgressbarRegister.visibility = View.GONE
+                binding?.btnRegister?.isEnabled = true
+                binding?.tvHaveAccount?.isEnabled = true
+                binding?.mainProgressbarRegister?.visibility = View.GONE
             } else {
                 Toast.makeText(
                     this@RegisterActivity,
@@ -314,7 +314,7 @@ class RegisterActivity : AppCompatActivity() {
             val result: CropImage.ActivityResult? = CropImage.getActivityResult(intent)
             if (resultCode == RESULT_OK) {
                 cropImgUri = result?.uriContent
-                binding.ivProfileSignup.setImageURI(cropImgUri)
+                binding?.ivProfileSignup?.setImageURI(cropImgUri)
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 result?.error
             }
@@ -341,5 +341,10 @@ class RegisterActivity : AppCompatActivity() {
             result = formatterNew.format(date)
         }
         return result
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
