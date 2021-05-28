@@ -1,5 +1,6 @@
 package academy.bangkit.predict19.ui.login
 
+import academy.bangkit.predict19.R
 import academy.bangkit.predict19.databinding.ActivityLoginBinding
 import academy.bangkit.predict19.ui.MainActivity
 import academy.bangkit.predict19.ui.RegisterActivity
@@ -36,28 +37,28 @@ class LoginActivity : AppCompatActivity() {
 
             when {
                 email.isEmpty() -> {
-                    binding.etEmailLogin.error = "Email Cannot Empty"
+                    binding.etEmailLogin.error = getString(R.string.notif_email_empty)
                     binding.btnLogin.isEnabled = true
                     binding.btnGoogleLogin.isEnabled = true
                     binding.tvSignup.isEnabled = true
                     binding.mainProgressbarLogin.visibility = View.GONE
                 }
                 !emailPattern.matcher(email).matches() -> {
-                    binding.etEmailLogin.error = "Invalid Email Format"
+                    binding.etEmailLogin.error = getString(R.string.notif_email_invalid)
                     binding.btnLogin.isEnabled = true
                     binding.btnGoogleLogin.isEnabled = true
                     binding.tvSignup.isEnabled = true
                     binding.mainProgressbarLogin.visibility = View.GONE
                 }
                 password.isEmpty() -> {
-                    binding.etPassLogin.error = "Password Cannot Empty"
+                    binding.etPassLogin.error = getString(R.string.notif_pass_empty)
                     binding.btnLogin.isEnabled = true
                     binding.btnGoogleLogin.isEnabled = true
                     binding.tvSignup.isEnabled = true
                     binding.mainProgressbarLogin.visibility = View.GONE
                 }
                 password.length < 8 -> {
-                    binding.etPassLogin.error = "Password Must at Least 8 Character"
+                    binding.etPassLogin.error = getString(R.string.notif_pass_less_than_eight)
                     binding.btnLogin.isEnabled = true
                     binding.btnGoogleLogin.isEnabled = true
                     binding.tvSignup.isEnabled = true
@@ -111,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
         } else {
             val loginActivity = Intent(applicationContext, LoginActivity::class.java)
             startActivity(loginActivity)
-            Toast.makeText(this, "Verifikasi Email Kamu", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.notif_verify_email), Toast.LENGTH_SHORT).show()
             firebaseAuth.signOut()
         }
     }

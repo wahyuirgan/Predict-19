@@ -29,4 +29,21 @@
     <string name="label_select_date">Select Date</string>
     <string name="label_date_of_birth">Date of Birth</string>
     <string name="label_profile_image">Profile Image</string>
+    <string name="label_sub_welcome">Always take care of your health</string>
+    <string name="notif_verify_email">Verify Your Email</string>
+    <string name="notif_pass_less_than_eight">Password Must at Least 8 Character</string>
+    <string name="notif_pass_empty">Password Cannot Empty</string>
+    <string name="notif_email_invalid">Invalid Email Format</string>
+    <string name="notif_email_empty">Email Cannot Empty</string>
+    <string name="notif_name_empty">Name Cannot Empty</string>
+    <string name="notif_date_birth_empty">Date Birth Cannot Empty</string>
+    <string name="notif_image_profile_not_picked">You Must Pick Profile Image</string>
+    <string name="notif_re_pass_not_same">Re-Password Must Same as Password</string>
+    <string name="notif_agreement_not_checked">Agreement Must be Checked</string>
+    <string name="notif_account_created">Account Created</string>
+    <string name="notif_account_created_fail">Account Creation Failed.</string>
+    <string name="notif_register_success">Successful Registration</string>
+    <string name="notif_email_verify_send">Registration Successful, Verification Email Sent!</string>
+    <string name="notif_email_verify_unsend">Undeliverable Verification Email!</string>
+    <string name="notif_permission">Please accept for required permissions</string>
 </resources>

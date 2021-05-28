@@ -100,61 +100,61 @@ class RegisterActivity : AppCompatActivity() {
 
             when {
                 pickedImgUri == null -> {
-                    Toast.makeText(this, "You Must Pick Profile Image", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.notif_image_profile_not_picked), Toast.LENGTH_SHORT).show()
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 name.isEmpty() -> {
-                    binding.etNameSignup.error = "Name Cannot Empty"
+                    binding.etNameSignup.error = getString(R.string.notif_name_empty)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 dateBirth.isEmpty() -> {
-                    binding.tvDateSignup.error = "Date Birth Cannot Empty"
+                    binding.tvDateSignup.error = getString(R.string.notif_date_birth_empty)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 email.isEmpty() -> {
-                    binding.etEmailSignup.error = "Email Cannot Empty"
+                    binding.etEmailSignup.error = getString(R.string.notif_email_empty)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 !emailPattern.matcher(email).matches() -> {
-                    binding.etEmailSignup.error = "Invalid Email Format "
+                    binding.etEmailSignup.error = getString(R.string.notif_email_invalid)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 password.isEmpty() -> {
-                    binding.etPassSignup.error = "Password Cannot Empty"
+                    binding.etPassSignup.error = getString(R.string.notif_pass_empty)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 rePassword.isEmpty() -> {
-                    binding.etRePassSignup.error = "Password Cannot Empty"
+                    binding.etRePassSignup.error = getString(R.string.notif_pass_empty)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 password.length < 8 -> {
-                    binding.etPassSignup.error = "Password Must at Least 8 Character"
+                    binding.etPassSignup.error = getString(R.string.notif_pass_less_than_eight)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 password != rePassword -> {
-                    binding.etRePassSignup.error = "Re-Password Must Same as Password"
+                    binding.etRePassSignup.error = getString(R.string.notif_re_pass_not_same)
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 !binding.cbAgreement.isChecked -> {
-                    Toast.makeText(this, "Agreement Must be Checked", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.notif_agreement_not_checked), Toast.LENGTH_SHORT).show()
                     binding.btnRegister.isEnabled = true
                     binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
@@ -182,7 +182,7 @@ class RegisterActivity : AppCompatActivity() {
 
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Akun Dibuat",
+                    getString(R.string.notif_account_created),
                     Toast.LENGTH_LONG
                 ).show()
                 updateUserInfo(name,
@@ -201,7 +201,7 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Pembuatan Akun Gagal. " + task.exception?.message,
+                    getString(R.string.notif_account_created_fail).plus(" ").plus(task.exception?.message),
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.btnRegister.visibility = View.VISIBLE
@@ -228,7 +228,7 @@ class RegisterActivity : AppCompatActivity() {
                             firebaseAuth.signOut()
                             Toast.makeText(
                                 this@RegisterActivity,
-                                "Pendaftaran Berhasil",
+                                getString(R.string.notif_register_success),
                                 Toast.LENGTH_LONG
                             ).show()
                             binding.btnRegister.isEnabled = true
@@ -247,7 +247,7 @@ class RegisterActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Registrasi Berhasil, Email Verifikasi Terkirim!",
+                    getString(R.string.notif_email_verify_send),
                     Toast.LENGTH_SHORT
                 ).show()
                 firebaseAuth.signOut()
@@ -258,7 +258,7 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Email Verifikasi Tidak Terkirim!",
+                    getString(R.string.notif_email_verify_unsend),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -285,7 +285,7 @@ class RegisterActivity : AppCompatActivity() {
             ) {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Mohon terima untuk permission yang dibutuhkan",
+                    getString(R.string.notif_permission),
                     Toast.LENGTH_LONG
                 ).show()
             } else {
