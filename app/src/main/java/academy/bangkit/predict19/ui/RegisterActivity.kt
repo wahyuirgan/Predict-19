@@ -1,25 +1,170 @@
 package academy.bangkit.predict19.ui
 
+import academy.bangkit.predict19.R
+import academy.bangkit.predict19.data.User
 import academy.bangkit.predict19.databinding.ActivityRegisterBinding
 import academy.bangkit.predict19.ui.login.LoginActivity
+import android.Manifest
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.canhub.cropper.CropImage
+import com.canhub.cropper.CropImageView
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.common.base.Strings
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.regex.Pattern
 
+
+@RequiresApi(Build.VERSION_CODES.P)
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+
+    private val databaseReference: DatabaseReference  = FirebaseDatabase.getInstance().getReference("users")
+    private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
+
+    private lateinit var name: String
+    private lateinit var email: String
+    private lateinit var dateBirth: String
+    private lateinit var password: String
+    private lateinit var rePassword: String
+
+    private val pickedRequestCode: Int = 1
+    private val imageRequestCode: Int = 1
+    private var pickedImgUri: Uri? = null
+    private var cropImgUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnImagePlus.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= 22){
+                checkAndRequestForPermission()
+            }
+            else {
+                openGallery()
+            }
+
+        }
+
+        val materialDateBuilder =
+            MaterialDatePicker.Builder.datePicker()
+
+        materialDateBuilder.setTitleText("Select a Date")
+
+        val materialDatePicker = materialDateBuilder.build()
+
+        binding.btnDateSignup.setOnClickListener {
+            binding.tvDateSignup.error = null
+            materialDatePicker.show(supportFragmentManager, "Material Date Picker")
+        }
+
+        materialDatePicker.addOnPositiveButtonClickListener {
+
+            val changeDate = changeDateFormat(materialDatePicker.headerText)
+
+            binding.tvDateSignup.text = changeDate
+        }
+
         binding.btnRegister.setOnClickListener {
-            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-            startActivity(intent)
-            Toast.makeText(this, "Registered", Toast.LENGTH_SHORT).show()
+            binding.btnRegister.visibility = View.GONE
+            binding.tvHaveAccount.visibility = View.GONE
+            binding.mainProgressbarRegister.visibility = View.VISIBLE
+
+            name = binding.etNameSignup.text.toString()
+            email = binding.etEmailSignup.text.toString()
+            dateBirth = binding.tvDateSignup.text.toString()
+            password = binding.etPassSignup.text.toString()
+            rePassword = binding.etRePassSignup.text.toString()
+
+            val emailPattern = Pattern.compile("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
+
+            when {
+                pickedImgUri == null -> {
+                    Toast.makeText(this, "You Must Pick Profile Image", Toast.LENGTH_SHORT).show()
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                name.isEmpty() -> {
+                    binding.etNameSignup.error = "Name Cannot Empty"
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                dateBirth.isEmpty() -> {
+                    binding.tvDateSignup.error = "Date Birth Cannot Empty"
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                email.isEmpty() -> {
+                    binding.etEmailSignup.error = "Email Cannot Empty"
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                !emailPattern.matcher(email).matches() -> {
+                    binding.etEmailSignup.error = "Invalid Email Format "
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                password.isEmpty() -> {
+                    binding.etPassSignup.error = "Password Cannot Empty"
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                rePassword.isEmpty() -> {
+                    binding.etRePassSignup.error = "Password Cannot Empty"
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                password.length < 8 -> {
+                    binding.etPassSignup.error = "Password Must at Least 8 Character"
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                password != rePassword -> {
+                    binding.etRePassSignup.error = "Re-Password Must Same as Password"
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                !binding.cbAgreement.isChecked -> {
+                    Toast.makeText(this, "Agreement Must be Checked", Toast.LENGTH_SHORT).show()
+                    binding.btnRegister.visibility = View.VISIBLE
+                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.mainProgressbarRegister.visibility = View.GONE
+                }
+                else -> {
+                    createUserAccount(email, name, password)
+                }
+            }
         }
 
         binding.tvHaveAccount.setOnClickListener {
@@ -27,5 +172,178 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    private fun createUserAccount(email: String, name: String, password: String) {
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(
+            this
+        ) { task ->
+            if (task.isSuccessful) {
+
+                dateBirth = binding.tvDateSignup.text.toString()
+
+                Toast.makeText(
+                    this@RegisterActivity,
+                    "Akun Dibuat",
+                    Toast.LENGTH_LONG
+                ).show()
+                firebaseAuth.currentUser?.let { cropImgUri?.let { it1 ->
+                    updateUserInfo(name,
+                        it1, it)
+                } }
+                val user = User(
+                    name,
+                    dateBirth,
+                    email
+                )
+                Objects.requireNonNull(FirebaseAuth.getInstance().currentUser)?.let {
+                    databaseReference.child(
+                        it.uid
+                    )
+                        .setValue(user).addOnCompleteListener { }
+                }
+            } else {
+                Toast.makeText(
+                    this@RegisterActivity,
+                    "Pembuatan Akun Gagal" + task.exception!!.message,
+                    Toast.LENGTH_LONG
+                ).show()
+                binding.btnRegister.visibility = View.VISIBLE
+                binding.tvHaveAccount.visibility = View.VISIBLE
+                binding.mainProgressbarRegister.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun updateUserInfo(name: String, pickedImgUri: Uri, currentUser: FirebaseUser) {
+        val storageReference: StorageReference = FirebaseStorage.getInstance().reference
+        val imageFile: StorageReference? =
+            pickedImgUri.lastPathSegment?.let { storageReference.child(it) }
+        imageFile?.putFile(pickedImgUri)?.addOnSuccessListener {
+            imageFile.downloadUrl.addOnSuccessListener { uri ->
+                val profileChangeRequest = UserProfileChangeRequest.Builder()
+                    .setDisplayName(name)
+                    .setPhotoUri(uri)
+                    .build()
+                currentUser.updateProfile(profileChangeRequest)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            sendEmailVerification()
+                            firebaseAuth.signOut()
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                "Pendaftaran Berhasil",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            binding.btnRegister.visibility = View.VISIBLE
+                            binding.tvHaveAccount.visibility = View.VISIBLE
+                            binding.mainProgressbarRegister.visibility = View.GONE
+                            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                        }
+                    }
+            }
+        }
+    }
+
+    private fun sendEmailVerification() {
+        val firebaseUser = firebaseAuth.currentUser
+        firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(
+                    this@RegisterActivity,
+                    "Registrasi Berhasil, Email Verifikasi Terkirim!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                firebaseAuth.signOut()
+                finishAffinity()
+                binding.btnRegister.visibility = View.VISIBLE
+                binding.tvHaveAccount.visibility = View.VISIBLE
+                binding.mainProgressbarRegister.visibility = View.GONE
+            } else {
+                Toast.makeText(
+                    this@RegisterActivity,
+                    "Email Verifikasi Tidak Terkirim!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    private fun openGallery() {
+        val galleryIntent = Intent(Intent.ACTION_GET_CONTENT)
+        galleryIntent.type = "image/*"
+        startActivityForResult(galleryIntent, imageRequestCode)
+    }
+
+    private fun checkAndRequestForPermission() {
+        if (ContextCompat.checkSelfPermission(
+                this@RegisterActivity,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this@RegisterActivity,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                )
+            ) {
+                Toast.makeText(
+                    this@RegisterActivity,
+                    "Mohon terima untuk permission yang dibutuhkan",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                ActivityCompat.requestPermissions(
+                    this@RegisterActivity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    pickedRequestCode
+                )
+            }
+        } else openGallery()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, intent)
+        if (resultCode == RESULT_OK && requestCode == imageRequestCode && intent != null) {
+            pickedImgUri = intent.data
+            CropImage.activity(pickedImgUri)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setAspectRatio(1, 1)
+                .setCropShape(CropImageView.CropShape.OVAL)
+                .setBorderLineColor(Color.RED)
+                .setGuidelinesColor(Color.GREEN)
+                .setBorderLineThickness(resources.getDimensionPixelSize(R.dimen.dimension_3dp).toFloat())
+                .start(this)
+        }
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            val result: CropImage.ActivityResult? = CropImage.getActivityResult(intent)
+            if (resultCode == RESULT_OK) {
+                cropImgUri = result?.uriContent
+                binding.ivProfileSignup.setImageURI(cropImgUri)
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                result?.error
+            }
+        }
+    }
+
+
+    private fun changeDateFormat(
+        dateString: String
+    ): String {
+        var result = ""
+        if (Strings.isNullOrEmpty(dateString)) {
+            return result
+        }
+        val formatterOld = SimpleDateFormat("MMM dd, yyy", Locale.getDefault())
+        val formatterNew = SimpleDateFormat("dd MMM yyy", Locale.getDefault())
+        var date: Date? = null
+        try {
+            date = formatterOld.parse(dateString)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        if (date != null) {
+            result = formatterNew.format(date)
+        }
+        return result
     }
 }

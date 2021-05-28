@@ -27,4 +27,7 @@
     <string name="request_canceled">Request Cancel</string>
     <string name="registration_successful">Registration Successful</string>
     <string name="login_successful">Login Successful</string>
+    <string name="label_select_date">Select Date</string>
+    <string name="label_date_of_birth">Date of Birth</string>
+    <string name="label_profile_image">Profile Image</string>
 </resources>

@@ -39,5 +39,7 @@
     <!-- corner radius -->
     <dimen name="corner_radius_5dp">5dp</dimen>
     <dimen name="corner_radius_10dp">10dp</dimen>
+    <!-- dimension -->
+    <dimen name="dimension_3dp">3dp</dimen>
 
 </resources>
