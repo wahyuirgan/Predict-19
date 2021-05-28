@@ -52,11 +52,10 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:layout_gravity="center"/>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:orientation="vertical">
+                    android:background="@android:color/white">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txtEmailLayout"
@@ -65,6 +64,7 @@
                         android:layout_marginStart="@dimen/margin_30dp"
                         android:layout_marginEnd="@dimen/margin_30dp"
                         android:layout_marginTop="@dimen/margin_20dp"
+                        android:layout_centerHorizontal="true"
                         app:hintEnabled="false"
                         app:errorEnabled="true">
 
@@ -95,6 +95,8 @@
                         android:layout_marginStart="@dimen/margin_30dp"
                         android:layout_marginTop="@dimen/margin_10dp"
                         android:layout_marginEnd="@dimen/margin_30dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/txtEmailLayout"
                         app:errorEnabled="true"
                         app:hintEnabled="false"
                         app:passwordToggleEnabled="true">
@@ -125,7 +127,7 @@
                         android:background="@color/colorTopCardLogin"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_18pt"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginBottom="@dimen/margin_10dp"
                         android:layout_marginTop="@dimen/margin_24dp"
                         android:layout_marginStart="@dimen/margin_30dp"
@@ -134,14 +136,17 @@
                         android:textAllCaps="true"
                         android:textColor="@android:color/white"
                         android:fontFamily="@font/montserrat_bold"
-                        android:textSize="@dimen/text_size_14sp"/>
+                        android:textSize="@dimen/text_size_14sp"
+                        android:layout_below="@+id/txtPassLayout"/>
 
                     <TextView
+                        android:id="@+id/viewLogin"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="@string/label_or"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="@dimen/margin_10dp"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_below="@+id/btnLogin"/>
 
                     <Button
                         android:id="@+id/btnGoogleLogin"
@@ -149,7 +154,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_18pt"
                         android:padding="@dimen/padding_5dp"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginBottom="@dimen/margin_10dp"
                         android:layout_marginStart="@dimen/margin_30dp"
                         android:layout_marginEnd="@dimen/margin_30dp"
@@ -157,20 +162,34 @@
                         android:fontFamily="@font/montserrat_bold"
                         android:textColor="@color/colorLoginGoogle"
                         android:textSize="@dimen/text_size_14sp"
-                        android:drawableStart="@drawable/ic_google"/>
+                        android:drawableStart="@drawable/ic_google"
+                        android:layout_below="@id/viewLogin"/>
 
                     <TextView
                         android:id="@+id/tvSignup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginBottom="@dimen/margin_28dp"
                         android:layout_marginStart="@dimen/margin_30dp"
                         android:layout_marginEnd="@dimen/margin_30dp"
                         android:text="@string/label_register_button"
-                        android:fontFamily="@font/montserrat_bold"/>
+                        android:fontFamily="@font/montserrat_bold"
+                        android:layout_below="@+id/btnGoogleLogin"/>
 
-                </LinearLayout>
+                    <ProgressBar
+                        android:id="@+id/mainProgressbarRegister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_28dp"
+                        android:layout_marginTop="@dimen/margin_24dp"
+                        android:layout_marginStart="@dimen/margin_30dp"
+                        android:layout_marginEnd="@dimen/margin_30dp"
+                        android:layout_centerHorizontal="true"
+                        android:visibility="gone"
+                        android:layout_below="@+id/txtPassLayout"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 

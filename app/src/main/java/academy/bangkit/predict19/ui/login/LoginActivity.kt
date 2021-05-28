@@ -18,9 +18,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            startActivity(intent)
-            Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show()
+
         }
 
         binding.tvSignup.setOnClickListener {

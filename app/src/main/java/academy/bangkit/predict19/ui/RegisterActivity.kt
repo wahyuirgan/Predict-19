@@ -38,8 +38,6 @@ import java.util.regex.Pattern
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-
-    private val databaseReference: DatabaseReference  = FirebaseDatabase.getInstance().getReference("users")
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     private lateinit var name: String
@@ -187,25 +185,23 @@ class RegisterActivity : AppCompatActivity() {
                     "Akun Dibuat",
                     Toast.LENGTH_LONG
                 ).show()
-                firebaseAuth.currentUser?.let { cropImgUri?.let { it1 ->
-                    updateUserInfo(name,
-                        it1, it)
-                } }
-                val user = User(
-                    name,
-                    dateBirth,
-                    email
+                updateUserInfo(name,
+                    cropImgUri, firebaseAuth.currentUser
                 )
-                Objects.requireNonNull(FirebaseAuth.getInstance().currentUser)?.let {
-                    databaseReference.child(
-                        it.uid
+
+                    val user = User(
+                        name,
+                        dateBirth,
+                        email
                     )
-                        .setValue(user).addOnCompleteListener { }
-                }
+
+                val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
+                databaseReference.child("users").child(firebaseAuth.uid.toString()).setValue(user)
+
             } else {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Pembuatan Akun Gagal" + task.exception!!.message,
+                    "Pembuatan Akun Gagal. " + task.exception!!.message,
                     Toast.LENGTH_LONG
                 ).show()
                 binding.btnRegister.visibility = View.VISIBLE
@@ -215,18 +211,18 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUserInfo(name: String, pickedImgUri: Uri, currentUser: FirebaseUser) {
+    private fun updateUserInfo(name: String, pickedImgUri: Uri?, currentUser: FirebaseUser?) {
         val storageReference: StorageReference = FirebaseStorage.getInstance().reference
         val imageFile: StorageReference? =
-            pickedImgUri.lastPathSegment?.let { storageReference.child(it) }
+            pickedImgUri?.lastPathSegment?.let { storageReference.child("image_profile").child(it) }
         imageFile?.putFile(pickedImgUri)?.addOnSuccessListener {
             imageFile.downloadUrl.addOnSuccessListener { uri ->
                 val profileChangeRequest = UserProfileChangeRequest.Builder()
                     .setDisplayName(name)
                     .setPhotoUri(uri)
                     .build()
-                currentUser.updateProfile(profileChangeRequest)
-                    .addOnCompleteListener { task ->
+                currentUser?.updateProfile(profileChangeRequest)
+                    ?.addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             sendEmailVerification()
                             firebaseAuth.signOut()
@@ -334,7 +330,7 @@ class RegisterActivity : AppCompatActivity() {
             return result
         }
         val formatterOld = SimpleDateFormat("MMM dd, yyy", Locale.getDefault())
-        val formatterNew = SimpleDateFormat("dd MMM yyy", Locale.getDefault())
+        val formatterNew = SimpleDateFormat("dd LLLL yyy", Locale.getDefault())
         var date: Date? = null
         try {
             date = formatterOld.parse(dateString)
