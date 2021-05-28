@@ -6,7 +6,6 @@
     <string name="title_account">Account</string>
     <string name="splash_screen">Splash Screen</string>
     <string name="label_sign_in">Sign In</string>
-    <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="label_login">Login</string>
     <string name="label_or">OR</string>

@@ -27,6 +27,7 @@
             tools:viewBindingIgnore="true" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_40dp"
@@ -271,18 +272,6 @@
                         android:textSize="@dimen/text_size_14sp"
                         android:layout_below="@+id/cbAgreement"/>
 
-                    <ProgressBar
-                        android:id="@+id/mainProgressbarRegister"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/margin_28dp"
-                        android:layout_marginTop="@dimen/margin_24dp"
-                        android:layout_marginStart="@dimen/margin_30dp"
-                        android:layout_marginEnd="@dimen/margin_30dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/cbAgreement"
-                        android:visibility="gone"/>
-
                     <TextView
                         android:id="@+id/tvHaveAccount"
                         android:layout_width="wrap_content"
@@ -301,6 +290,22 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <ProgressBar
+            android:id="@+id/mainProgressbarRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_28dp"
+            android:layout_marginTop="@dimen/margin_24dp"
+            android:layout_marginStart="@dimen/margin_30dp"
+            android:layout_marginEnd="@dimen/margin_30dp"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@android:color/white"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/cardRegister"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -86,8 +86,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            binding.btnRegister.visibility = View.GONE
-            binding.tvHaveAccount.visibility = View.GONE
+            binding.btnRegister.isEnabled = false
+            binding.tvHaveAccount.isEnabled = false
             binding.mainProgressbarRegister.visibility = View.VISIBLE
 
             name = binding.etNameSignup.text.toString()
@@ -101,62 +101,62 @@ class RegisterActivity : AppCompatActivity() {
             when {
                 pickedImgUri == null -> {
                     Toast.makeText(this, "You Must Pick Profile Image", Toast.LENGTH_SHORT).show()
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 name.isEmpty() -> {
                     binding.etNameSignup.error = "Name Cannot Empty"
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 dateBirth.isEmpty() -> {
                     binding.tvDateSignup.error = "Date Birth Cannot Empty"
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 email.isEmpty() -> {
                     binding.etEmailSignup.error = "Email Cannot Empty"
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 !emailPattern.matcher(email).matches() -> {
                     binding.etEmailSignup.error = "Invalid Email Format "
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 password.isEmpty() -> {
                     binding.etPassSignup.error = "Password Cannot Empty"
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 rePassword.isEmpty() -> {
                     binding.etRePassSignup.error = "Password Cannot Empty"
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 password.length < 8 -> {
                     binding.etPassSignup.error = "Password Must at Least 8 Character"
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 password != rePassword -> {
                     binding.etRePassSignup.error = "Re-Password Must Same as Password"
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 !binding.cbAgreement.isChecked -> {
                     Toast.makeText(this, "Agreement Must be Checked", Toast.LENGTH_SHORT).show()
-                    binding.btnRegister.visibility = View.VISIBLE
-                    binding.tvHaveAccount.visibility = View.VISIBLE
+                    binding.btnRegister.isEnabled = true
+                    binding.tvHaveAccount.isEnabled = true
                     binding.mainProgressbarRegister.visibility = View.GONE
                 }
                 else -> {
@@ -201,8 +201,8 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Pembuatan Akun Gagal. " + task.exception!!.message,
-                    Toast.LENGTH_LONG
+                    "Pembuatan Akun Gagal. " + task.exception?.message,
+                    Toast.LENGTH_SHORT
                 ).show()
                 binding.btnRegister.visibility = View.VISIBLE
                 binding.tvHaveAccount.visibility = View.VISIBLE
@@ -231,8 +231,8 @@ class RegisterActivity : AppCompatActivity() {
                                 "Pendaftaran Berhasil",
                                 Toast.LENGTH_LONG
                             ).show()
-                            binding.btnRegister.visibility = View.VISIBLE
-                            binding.tvHaveAccount.visibility = View.VISIBLE
+                            binding.btnRegister.isEnabled = true
+                            binding.tvHaveAccount.isEnabled = true
                             binding.mainProgressbarRegister.visibility = View.GONE
                             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
                         }
@@ -252,8 +252,8 @@ class RegisterActivity : AppCompatActivity() {
                 ).show()
                 firebaseAuth.signOut()
                 finishAffinity()
-                binding.btnRegister.visibility = View.VISIBLE
-                binding.tvHaveAccount.visibility = View.VISIBLE
+                binding.btnRegister.isEnabled = true
+                binding.tvHaveAccount.isEnabled = true
                 binding.mainProgressbarRegister.visibility = View.GONE
             } else {
                 Toast.makeText(
