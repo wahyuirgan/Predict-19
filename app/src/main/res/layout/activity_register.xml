@@ -137,7 +137,9 @@
                                 android:layout_marginEnd="@dimen/margin_8dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toStartOf="@+id/btnDateSignup"
-                                android:hint="@string/label_date_of_birth" />
+                                android:hint="@string/label_date_of_birth"
+                                android:background="@android:color/transparent"
+                                android:maxLines="1"/>
 
                             <Button
                                 android:id="@+id/btnDateSignup"

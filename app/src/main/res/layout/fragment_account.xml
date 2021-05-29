@@ -25,24 +25,29 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfileAccount"
                 android:layout_width="@dimen/width_190dp"
                 android:layout_height="@dimen/height_190dp"
                 android:layout_margin="@dimen/margin_20dp"
                 android:src="@drawable/ic_profile_signup" />
 
             <TextView
+                android:id="@+id/tvNameAccount"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="John Doe"
-                android:textColor="@android:color/white"/>
+                android:text="@string/hint_name"
+                android:textColor="@android:color/white"
+                android:textAlignment="center"/>
 
             <TextView
+                android:id="@+id/tvEmailAccount"
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="john@doe.com"
+                android:text="@string/hint_email"
                 android:textColor="@android:color/white"
+                android:textAlignment="center"
                 android:layout_marginBottom="@dimen/margin_40dp"/>
 
         </LinearLayout>
@@ -70,130 +75,42 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
-            android:text="Account Info"
+            android:text="@string/label_account_info"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
-
-        <ImageView
-            android:id="@+id/imageName"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/white"
-            android:src="@drawable/ic_baseline_person_24"
-            app:layout_constraintStart_toStartOf="@id/textAccountInfo"
-            app:layout_constraintTop_toBottomOf="@id/textAccountInfo" />
-
-        <TextView
-            android:id="@+id/textNameTitle"
-            style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Name"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toEndOf="@id/imageName"
-            app:layout_constraintTop_toTopOf="@id/imageName" />
-
-        <TextView
-            android:id="@+id/textName"
-            style="@style/TextAppearance.AppCompat.Caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="John Doe"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toEndOf="@id/imageName"
-            app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
-
-        <View
-            android:id="@+id/lineName"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:background="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageName" />
-
-        <ImageView
-            android:id="@+id/imageEmail"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/white"
-            android:src="@drawable/ic_baseline_email_24"
-            app:layout_constraintStart_toStartOf="@id/textAccountInfo"
-            app:layout_constraintTop_toBottomOf="@id/lineName" />
-
-        <TextView
-            android:id="@+id/textEmailTitle"
-            style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Email"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toEndOf="@id/imageEmail"
-            app:layout_constraintTop_toTopOf="@id/imageEmail" />
-
-        <TextView
-            android:id="@+id/textEmail"
-            style="@style/TextAppearance.AppCompat.Caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="john@doe.com"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toEndOf="@id/imageEmail"
-            app:layout_constraintTop_toBottomOf="@id/textEmailTitle" />
-
-        <View
-            android:id="@+id/lineEmail"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:background="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageEmail" />
 
         <ImageView
             android:id="@+id/imageAge"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
-            android:background="@android:color/white"
-            android:src="@drawable/ic_baseline_memory_24"
-            app:layout_constraintStart_toStartOf="@id/lineEmail"
-            app:layout_constraintTop_toBottomOf="@id/lineEmail" />
+            android:src="@drawable/ic_birthday"
+            app:layout_constraintStart_toStartOf="@id/textAccountInfo"
+            app:layout_constraintTop_toBottomOf="@id/textAccountInfo"
+            android:contentDescription="@string/label_date_of_birth"/>
 
         <TextView
-            android:id="@+id/textAgeTitle"
+            android:id="@+id/tvDateOfBirthAccountTitle"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Age"
+            android:text="@string/label_date_of_birth"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toEndOf="@id/imageAge"
             app:layout_constraintTop_toTopOf="@id/imageAge" />
 
         <TextView
-            android:id="@+id/textAge"
+            android:id="@+id/tvDateOfBirthAccount"
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="24 Years Old"
+            android:text="@string/label_date_of_birth"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toEndOf="@id/imageAge"
-            app:layout_constraintTop_toBottomOf="@id/textAgeTitle" />
+            app:layout_constraintTop_toBottomOf="@id/tvDateOfBirthAccountTitle" />
 
         <View
             android:id="@+id/viewAge"

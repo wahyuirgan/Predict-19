@@ -50,4 +50,18 @@
     <string name="label_age">Age</string>
     <string name="label_information">Information</string>
     <string name="label_edit">Edit</string>
+    <string name="label_welcome">Welcome to</string>
+    <string name="notif_user_not_found">User Information Not Found</string>
+    <string name="label_age_home">Years Old</string>
+    <string name="label_percent_predict">80%</string>
+    <string name="label_account_info">Account Info</string>
+    <string name="label_welcome_name">Hai, Name</string>
+    <string name="label_greeting">Hai,</string>
+    <string name="label_choose_image">Choose</string>
+    <string name="label_image_file">Name Image</string>
+    <string name="label_version_app">Version Name</string>
+    <string name="label_version">Version</string>
+    <string name="label_select_image">Select Image</string>
+    <string name="label_camera">Camera</string>
+    <string name="label_selected_image">Your Selected Image</string>
 </resources>

@@ -25,31 +25,50 @@
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="@dimen/width_190dp"
-                android:layout_height="@dimen/height_190dp"
-                android:layout_margin="@dimen/margin_20dp"
-                android:src="@drawable/ic_profile_signup" />
+            <TextView
+                android:id="@+id/tvWelcomeName"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_welcome_name"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_16sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_gravity="start"/>
 
             <TextView
                 android:id="@+id/tvWelcome"
                 android:layout_margin="@dimen/margin_10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welcome"
+                android:text="@string/label_welcome"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_size_20sp"
+                android:textAlignment="center"
                 android:fontFamily="@font/montserrat_bold"/>
+
+            <ImageView
+                android:id="@+id/ivProfileHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10dp"
+                android:src="@drawable/ic_app_home_logo"
+                android:padding="@dimen/padding_20dp"
+                android:background="@android:color/white"
+                android:contentDescription="@string/splash_screen"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10dp"
                 android:layout_marginEnd="@dimen/margin_10dp"
                 android:layout_marginStart="@dimen/margin_10dp"
                 android:layout_marginBottom="@dimen/margin_20dp"
                 android:text="@string/label_sub_welcome"
                 android:textColor="@android:color/white"
+                android:textAlignment="center"
                 android:fontFamily="@font/montserrat_regular"/>
 
         </LinearLayout>
@@ -92,26 +111,23 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textNameTitle"
+                        android:id="@+id/tvNameHomeTitle"
                         style="@style/TextAppearance.AppCompat.Subhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="@string/hint_name"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toTopOf="@id/imageName" />
+                        android:textColor="@android:color/white" />
 
                     <TextView
-                        android:id="@+id/textName"
+                        android:id="@+id/tvNameHome"
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="John Doe"
+                        android:text="@string/hint_name"
                         android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
+                        app:layout_constraintTop_toBottomOf="@id/tvNameHomeTitle" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -135,26 +151,22 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textAgeTitle"
+                        android:id="@+id/tvAgeHomeTitle"
                         style="@style/TextAppearance.AppCompat.Subhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="@string/label_age"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toTopOf="@id/imageName" />
+                        android:textColor="@android:color/white" />
 
                     <TextView
-                        android:id="@+id/textAge"
+                        android:id="@+id/tvAgeHome"
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="24 Years Old"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
+                        android:text="@string/label_age"
+                        android:textColor="@android:color/white" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -194,9 +206,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Checked At"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toTopOf="@id/imageName" />
+                        android:textColor="@android:color/white" />
 
                     <TextView
                         android:id="@+id/textCheckDate"
@@ -205,9 +215,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="26 Mei 2021"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
+                        android:textColor="@android:color/white" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -237,9 +245,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Covid Status"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toTopOf="@id/imageName" />
+                        android:textColor="@android:color/white" />
 
                     <TextView
                         android:id="@+id/textStatus"
@@ -248,9 +254,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Positive Covid-19"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintStart_toEndOf="@id/imageName"
-                        app:layout_constraintTop_toBottomOf="@id/textNameTitle" />
+                        android:textColor="@android:color/white" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -291,7 +295,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="80%"
+                    android:text="@string/label_percent_predict"
                     android:textColor="@android:color/white"
                     android:textSize="36sp"
                     android:textStyle="bold" />

@@ -1,143 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.prediction.PredictionFragment">
 
-    <TextView
-        android:id="@+id/textUploadImage"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Upload Image"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardChooseImage"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@id/textUploadImage">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/padding_20dp">
 
-        <androidx.cardview.widget.CardView
+        <TextView
+            android:id="@+id/tvUploadImage"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:layout_margin="8dp"
-            app:cardBackgroundColor="@color/background_app_color"
-            app:cardCornerRadius="12dp"
-            app:layout_constraintTop_toBottomOf="@id/textUploadImage">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_select_image"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                style="@style/TextAppearance.AppCompat.Subhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="Choose Image"
-                android:textColor="@android:color/white" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardChooseImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            app:cardCornerRadius="@dimen/corner_radius_10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvUploadImage">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvDateSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@android:style/Widget.EditText"
+                    android:layout_marginStart="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_8dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/btnDateSignup"
+                    android:hint="@string/label_image_file"
+                    android:background="@android:color/transparent"
+                    android:maxLines="1"/>
+
+                <Button
+                    android:id="@+id/btnDateSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8dp"
+                    android:padding="@dimen/margin_8dp"
+                    android:layout_centerVertical="true"
+                    android:background="@color/colorTopCardLogin"
+                    android:text="@string/label_choose_image"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/tvTextOr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/label_or"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardChooseImage" />
 
-    <TextView
-        android:id="@+id/textOr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="OR"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardChooseImage" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_margin="16dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/tvTextOr"
+            app:layout_constraintEnd_toStartOf="@id/tvTextOr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvTextOr" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_margin="16dp"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@id/textOr"
-        app:layout_constraintEnd_toStartOf="@id/textOr"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textOr" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_margin="16dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/tvTextOr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvTextOr"
+            app:layout_constraintTop_toTopOf="@id/tvTextOr" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_margin="16dp"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@id/textOr"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/textOr"
-        app:layout_constraintTop_toTopOf="@id/textOr" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardOpenCamera"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_margin="16dp"
-        app:cardBackgroundColor="@color/toolbar_background"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@id/textOr">
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btnChooseCamera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:theme="@style/Theme.MaterialComponents"
+            android:contentDescription="@string/label_edit"
+            android:text="@string/label_camera"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:backgroundTint="@color/colorTopCardLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTextOr"
+            app:icon="@drawable/ic_camera"
+            app:iconTint="@android:color/white"/>
 
         <TextView
+            android:id="@+id/textFileSelected"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="Choose Image"
-            android:textColor="@android:color/white" />
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/label_selected_image"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnChooseCamera" />
 
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/textFileSelected"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Upload Image"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardOpenCamera" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardPredict"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_margin="16dp"
-        app:cardBackgroundColor="@color/toolbar_background"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <TextView
-            style="@style/TextAppearance.AppCompat.Title"
+        <ImageView
+            android:id="@+id/ivImageFromChoose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="Predict"
-            android:textColor="@android:color/white" />
+            android:layout_margin="@dimen/margin_16dp"
+            android:src="@drawable/ic_image_background_pick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFileSelected"
+            android:contentDescription="@string/label_choose_image" />
 
-    </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/btnLogout"
+            android:background="@color/colorTopCardLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_18pt"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin_16dp"
+            android:text="@string/title_prediction"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintTop_toBottomOf="@+id/ivImageFromChoose"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
