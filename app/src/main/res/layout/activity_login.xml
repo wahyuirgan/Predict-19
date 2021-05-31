@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".ui.login.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -127,7 +128,7 @@
                         android:id="@+id/btnLogin"
                         android:background="@color/colorTopCardLogin"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_18pt"
+                        android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="@dimen/margin_10dp"
                         android:layout_marginTop="@dimen/margin_24dp"
@@ -153,7 +154,7 @@
                         android:id="@+id/btnGoogleLogin"
                         android:background="@drawable/button_border"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_18pt"
+                        android:layout_height="wrap_content"
                         android:padding="@dimen/padding_5dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="@dimen/margin_10dp"
@@ -175,6 +176,7 @@
                         android:layout_marginStart="@dimen/margin_30dp"
                         android:layout_marginEnd="@dimen/margin_30dp"
                         android:text="@string/label_register_button"
+                        android:textAlignment="center"
                         android:fontFamily="@font/montserrat_bold"
                         android:layout_below="@+id/btnGoogleLogin"/>
 

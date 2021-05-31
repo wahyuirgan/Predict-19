@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".ui.prediction.PredictionFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,20 +39,21 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tvDateSignup"
+                    android:id="@+id/tvImageGallery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@android:style/Widget.EditText"
                     android:layout_marginStart="@dimen/margin_8dp"
                     android:layout_marginEnd="@dimen/margin_8dp"
                     android:layout_centerVertical="true"
-                    android:layout_toStartOf="@+id/btnDateSignup"
+                    android:layout_toStartOf="@+id/btnChooseGallery"
                     android:hint="@string/label_image_file"
                     android:background="@android:color/transparent"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
 
                 <Button
-                    android:id="@+id/btnDateSignup"
+                    android:id="@+id/btnChooseGallery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_8dp"
@@ -129,8 +131,8 @@
         <ImageView
             android:id="@+id/ivImageFromChoose"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16dp"
+            android:layout_height="@dimen/height_190dp"
+            android:padding="@dimen/padding_20dp"
             android:src="@drawable/ic_image_background_pick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -19,7 +19,7 @@
 
     <style name="AppThemeMaterial" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/toolbar_background</item>
+        <item name="colorPrimary">@color/colorTopCardLogin</item>
         <item name="colorPrimaryDark">@color/header</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/background_app_color</item>

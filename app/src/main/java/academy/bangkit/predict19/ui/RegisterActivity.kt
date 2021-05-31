@@ -5,6 +5,7 @@ import academy.bangkit.predict19.data.User
 import academy.bangkit.predict19.databinding.ActivityRegisterBinding
 import academy.bangkit.predict19.ui.login.LoginActivity
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -52,6 +53,7 @@ class RegisterActivity : AppCompatActivity() {
     private var pickedImgUri: Uri? = null
     private var cropImgUri: Uri? = null
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -79,10 +81,16 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         materialDatePicker.addOnPositiveButtonClickListener {
+            if (Locale.getDefault().country == "US") {
+                val changeDate = changeDateFormat(materialDatePicker.headerText)
+                binding?.tvDateSignup?.text = changeDate
+            } else if (Locale.getDefault().country == "ID") {
 
-            val changeDate = changeDateFormat(materialDatePicker.headerText)
+                val changeDate = changeDateFormatIndonesian(materialDatePicker.headerText)
 
-            binding?.tvDateSignup?.text = changeDate
+                binding?.tvDateSignup?.text = changeDate
+            }
+
         }
 
         binding?.btnRegister?.setOnClickListener {
@@ -321,7 +329,6 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-
     private fun changeDateFormat(
         dateString: String
     ): String {
@@ -329,7 +336,28 @@ class RegisterActivity : AppCompatActivity() {
         if (Strings.isNullOrEmpty(dateString)) {
             return result
         }
-        val formatterOld = SimpleDateFormat("MMM dd, yyy", Locale.getDefault())
+        val formatterOld = SimpleDateFormat("MMM dd, yyy", Locale.US)
+        val formatterNew = SimpleDateFormat("dd LLLL yyy", Locale.US)
+        var date: Date? = null
+        try {
+            date = formatterOld.parse(dateString)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        if (date != null) {
+            result = formatterNew.format(date)
+        }
+        return result
+    }
+
+    private fun changeDateFormatIndonesian(
+        dateString: String
+    ): String {
+        var result = ""
+        if (Strings.isNullOrEmpty(dateString)) {
+            return result
+        }
+        val formatterOld = SimpleDateFormat("dd MMM yyy", Locale.getDefault())
         val formatterNew = SimpleDateFormat("dd LLLL yyy", Locale.getDefault())
         var date: Date? = null
         try {

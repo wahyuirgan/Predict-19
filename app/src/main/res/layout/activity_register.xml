@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".ui.RegisterActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -139,7 +140,8 @@
                                 android:layout_toStartOf="@+id/btnDateSignup"
                                 android:hint="@string/label_date_of_birth"
                                 android:background="@android:color/transparent"
-                                android:maxLines="1"/>
+                                android:maxLines="1"
+                                android:ellipsize="end"/>
 
                             <Button
                                 android:id="@+id/btnDateSignup"
@@ -260,8 +262,9 @@
                     <Button
                         android:id="@+id/btnRegister"
                         android:background="@color/colorTopCardLogin"
+                        style="@style/Widget.AppCompat.Button"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_18pt"
+                        android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="@dimen/margin_10dp"
                         android:layout_marginTop="@dimen/margin_24dp"
@@ -283,9 +286,10 @@
                         android:layout_marginStart="@dimen/margin_30dp"
                         android:layout_marginEnd="@dimen/margin_30dp"
                         android:text="@string/label_have_account_button"
+                        android:textAlignment="center"
                         android:fontFamily="@font/montserrat_bold"
                         android:layout_below="@+id/btnRegister"
-                        android:gravity="bottom"/>
+                        android:gravity="bottom|center"/>
 
                 </RelativeLayout>
 

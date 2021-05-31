@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
     private fun getAge(
         dateString: String
     ): Int {
-        val dateFormatter = SimpleDateFormat("dd LLLL yyy", Locale.getDefault())
+        val dateFormatter = SimpleDateFormat("dd MMM yyy", Locale.US)
         var date: Date? = null
         try {
             date = dateFormatter.parse(dateString)
