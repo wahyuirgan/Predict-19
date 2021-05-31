@@ -63,6 +63,14 @@ class AccountFragment : Fragment() {
             }
         )
 
+        binding?.btnEditProfile?.setOnClickListener {
+            Toast.makeText(
+                context,
+                getString(R.string.notif_in_development),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
         binding?.btnLogout?.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(activity, LoginActivity::class.java)

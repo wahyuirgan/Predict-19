@@ -53,7 +53,7 @@
     <string name="label_welcome">Welcome to</string>
     <string name="notif_user_not_found">User Information Not Found</string>
     <string name="label_age_home">Years Old</string>
-    <string name="label_percent_predict">80%</string>
+    <string name="label_no_percent_predict">0%</string>
     <string name="label_account_info">Account Info</string>
     <string name="label_welcome_name">Hai, Name</string>
     <string name="label_greeting">Hai,</string>
@@ -64,4 +64,18 @@
     <string name="label_select_image">Select Image</string>
     <string name="label_camera">Camera</string>
     <string name="label_selected_image">Your Selected Image</string>
+    <string name="label_checked_at">Checked At</string>
+    <string name="label_no_data">-</string>
+    <string name="label_covid_status">Covid Status</string>
+    <string name="text_oxygen_predict_statement">Oxygen predictions stated</string>
+    <string name="text_time_predict_statement">so that the estimated time is only in</string>
+    <string name="no_predict_data">No Predict Data</string>
+    <string name="label_oxygen_prediction">Oxygen Prediction</string>
+    <string name="notif_reqired_permission">Please Accept for Required Permissions</string>
+    <string name="label_setting">Settings</string>
+    <string name="label_alert">Alert</string>
+    <string name="notif_camera_permission">App Requires Permission To Access Camera</string>
+    <string name="notif_decline">Decline</string>
+    <string name="notif_accept">Accept</string>
+    <string name="notif_in_development">Still in Development Stage</string>
 </resources>

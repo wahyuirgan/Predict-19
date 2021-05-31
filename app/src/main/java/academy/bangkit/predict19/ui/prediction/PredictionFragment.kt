@@ -1,8 +1,8 @@
 package academy.bangkit.predict19.ui.prediction
 
+import academy.bangkit.predict19.R
 import academy.bangkit.predict19.databinding.FragmentPredictionBinding
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Context
@@ -103,7 +103,7 @@ class PredictionFragment : Fragment() {
             ) {
                 Toast.makeText(
                     context,
-                    "Mohon terima untuk permission yang dibutuhkan",
+                    getString(R.string.notif_reqired_permission),
                     Toast.LENGTH_LONG
                 ).show()
             } else {
@@ -119,11 +119,11 @@ class PredictionFragment : Fragment() {
 
     private fun showAlertDialog() {
         val alertDialog: AlertDialog = AlertDialog.Builder(requireContext()).create()
-        alertDialog.setTitle("Peringatan")
-        alertDialog.setMessage("Aplikasi Membutuhkan Permission Untuk Mengakses Kamera")
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Tolak"
+        alertDialog.setTitle(getString(R.string.label_alert))
+        alertDialog.setMessage(getString(R.string.notif_camera_permission))
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.notif_decline)
         ) { dialogInterface, _ -> dialogInterface.dismiss() }
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Terima"
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.notif_accept)
         ) { dialogInterface, _ ->
             dialogInterface.dismiss()
             ActivityCompat.requestPermissions(
@@ -140,13 +140,13 @@ class PredictionFragment : Fragment() {
         val alertDialog = AlertDialog.Builder(
             requireContext()
         ).create()
-        alertDialog.setTitle("Peringatan")
-        alertDialog.setMessage("Aplikasi Membutuhkan Permission Untuk Mengakses Kamera")
+        alertDialog.setTitle(getString(R.string.label_alert))
+        alertDialog.setMessage(getString(R.string.notif_camera_permission))
         alertDialog.setButton(
-            AlertDialog.BUTTON_NEGATIVE, "Tolak"
+            AlertDialog.BUTTON_NEGATIVE, getString(R.string.notif_decline)
         ) { dialogInterface, _ -> dialogInterface.dismiss() }
         alertDialog.setButton(
-            AlertDialog.BUTTON_POSITIVE, "Pengaturan"
+            AlertDialog.BUTTON_POSITIVE, getString(R.string.label_setting)
         ) { dialogInterface, _ ->
             dialogInterface.dismiss()
             startInstalledAppDetailsActivity(requireActivity())
@@ -174,7 +174,7 @@ class PredictionFragment : Fragment() {
         if (context?.let { ContextCompat.checkSelfPermission(it, Manifest.permission.READ_EXTERNAL_STORAGE) }
             != PackageManager.PERMISSION_GRANTED){
             if (activity?.let { ActivityCompat.shouldShowRequestPermissionRationale(it, Manifest.permission.READ_EXTERNAL_STORAGE) } == true){
-                Toast.makeText(context, "Mohon terima untuk permission yang dibutuhkan", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.notif_reqired_permission), Toast.LENGTH_LONG).show()
             }
             else {
                 val requestCodeGallery = 1
@@ -237,8 +237,6 @@ class PredictionFragment : Fragment() {
         startActivityForResult(intent, requestCamera)
     }
 
-
-    @SuppressLint("Recycle")
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
         if (requestCode == requestGallery) {

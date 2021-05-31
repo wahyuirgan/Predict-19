@@ -1,4 +1,4 @@
-package academy.bangkit.predict19.ui
+package academy.bangkit.predict19.ui.register
 
 import academy.bangkit.predict19.R
 import academy.bangkit.predict19.data.User

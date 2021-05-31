@@ -3,7 +3,7 @@ package academy.bangkit.predict19.ui.login
 import academy.bangkit.predict19.R
 import academy.bangkit.predict19.databinding.ActivityLoginBinding
 import academy.bangkit.predict19.ui.MainActivity
-import academy.bangkit.predict19.ui.RegisterActivity
+import academy.bangkit.predict19.ui.register.RegisterActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -69,6 +69,14 @@ class LoginActivity : AppCompatActivity() {
                     loginProcess(email, password)
                 }
             }
+        }
+
+        binding?.btnGoogleLogin?.setOnClickListener {
+            Toast.makeText(
+                this@LoginActivity,
+                getString(R.string.notif_in_development),
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         binding?.tvSignup?.setOnClickListener {

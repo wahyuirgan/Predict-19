@@ -74,7 +74,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textInformation"
+            android:id="@+id/tvInformation"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
-            app:layout_constraintTop_toBottomOf="@id/textInformation">
+            app:layout_constraintTop_toBottomOf="@id/tvInformation">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -200,21 +200,21 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textCheckDateTitle"
+                        android:id="@+id/tvCheckDateTitle"
                         style="@style/TextAppearance.AppCompat.Subhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Checked At"
+                        android:text="@string/label_checked_at"
                         android:textColor="@android:color/white" />
 
                     <TextView
-                        android:id="@+id/textCheckDate"
+                        android:id="@+id/tvCheckDate"
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="26 Mei 2021"
+                        android:text="@string/label_no_data"
                         android:textColor="@android:color/white" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -239,21 +239,21 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textStatusTitle"
+                        android:id="@+id/tvStatusTitle"
                         style="@style/TextAppearance.AppCompat.Subhead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Covid Status"
+                        android:text="@string/label_covid_status"
                         android:textColor="@android:color/white" />
 
                     <TextView
-                        android:id="@+id/textStatus"
+                        android:id="@+id/tvStatus"
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Positive Covid-19"
+                        android:text="@string/label_no_data"
                         android:textColor="@android:color/white" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -263,13 +263,13 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textOxygenPrediction"
+            android:id="@+id/tvOxygenPrediction"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Oxygen Prediction"
+            android:text="@string/label_oxygen_prediction"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutInformationTwo" />
@@ -282,7 +282,7 @@
             app:cardCornerRadius="68dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textOxygenPrediction">
+            app:layout_constraintTop_toBottomOf="@id/tvOxygenPrediction">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -292,10 +292,11 @@
                 app:cardCornerRadius="68dp">
 
                 <TextView
+                    android:id="@+id/tvOxygenPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/label_percent_predict"
+                    android:text="@string/label_no_percent_predict"
                     android:textColor="@android:color/white"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -305,11 +306,12 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/tvOxygenPercentStatement"
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Prediksi oksigen menyatakan 80% sehingga perkiraan waktu hanya dalam 96 jam"
+            android:text="@string/no_predict_data"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             app:layout_constraintTop_toBottomOf="@id/circleOxygen" />
