@@ -29,10 +29,10 @@ class HelpFragment : Fragment() {
         _binding = FragmentHelpBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        helpViewModel.text.observe(viewLifecycleOwner, {
-            textView.text = it
-        })
+//        val textView: TextView = binding.textNotifications
+//        helpViewModel.text.observe(viewLifecycleOwner, {
+//            textView.text = it
+//        })
         return root
     }
 
