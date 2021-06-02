@@ -2,6 +2,7 @@ package academy.bangkit.predict19.ui.prediction
 
 import academy.bangkit.predict19.R
 import academy.bangkit.predict19.databinding.FragmentPredictionBinding
+import academy.bangkit.predict19.ui.ResultPredictActivity
 import android.Manifest
 import android.app.Activity
 import android.app.Activity.RESULT_OK
@@ -9,6 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -58,6 +60,18 @@ class PredictionFragment : Fragment() {
             } else {
                 openCamera()
             }
+        }
+
+        binding?.btnPredictImage?.setOnClickListener {
+
+            if (pickedImgUri == null) {
+                Toast.makeText(context, getString(R.string.notif_image_predict_not_picked), Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(context, ResultPredictActivity::class.java)
+                intent.putExtra("resId", pickedImgUri)
+                startActivity(intent)
+            }
+
         }
 
         return binding?.root
@@ -243,9 +257,12 @@ class PredictionFragment : Fragment() {
             if (resultCode == RESULT_OK && intent != null) {
                 pickedImgUri = intent.data
                 try {
-                    val bitmap = MediaStore.Images.Media.getBitmap(
+                    var bitmap = MediaStore.Images.Media.getBitmap(
                             activity?.applicationContext?.contentResolver, pickedImgUri
                     )
+                    bitmap = Bitmap.createScaledBitmap(bitmap,
+                        224,
+                        224, false)
                     binding?.ivImageFromChoose?.setImageBitmap(bitmap)
 
                     val returnCursor: Cursor? = pickedImgUri?.let {
@@ -263,19 +280,17 @@ class PredictionFragment : Fragment() {
             if (resultCode == RESULT_OK && intent != null) {
                 pickedImgUri = intent.data
                 try {
-                    val bitmap = MediaStore.Images.Media.getBitmap(
+                    var bitmap = MediaStore.Images.Media.getBitmap(
                         activity?.applicationContext?.contentResolver, pickedImgUri
                     )
+                    bitmap = Bitmap.createScaledBitmap(bitmap,
+                        224,
+                        224, false)
                     binding?.ivImageFromChoose?.setImageBitmap(bitmap)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
