@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "552848278606",
-    "firebase_url": "https://predict-19-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "predict-19",
-    "storage_bucket": "predict-19.appspot.com"
+    "project_number": "809473859837",
+    "firebase_url": "https://exalted-strata-314510-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "exalted-strata-314510",
+    "storage_bucket": "exalted-strata-314510.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:552848278606:android:8fe30fb680026659026f1f",
+        "mobilesdk_app_id": "1:809473859837:android:4204f0feb0b951872e1e94",
         "android_client_info": {
           "package_name": "academy.bangkit.predict19"
         }
       },
       "oauth_client": [
         {
-          "client_id": "552848278606-f1lvcvsokkj2ml4fdtdj577i8bievnoh.apps.googleusercontent.com",
+          "client_id": "809473859837-sir6o1k8aj8l35smpvvp8g67on3tqpk8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCWcRjV4ULatQ0c5Xh-OOwdu_NBeE5SItk"
+          "current_key": "AIzaSyAyR1hW7pue9hraUGIpSHz9ZNGQCk1uvGc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "552848278606-f1lvcvsokkj2ml4fdtdj577i8bievnoh.apps.googleusercontent.com",
+              "client_id": "809473859837-sir6o1k8aj8l35smpvvp8g67on3tqpk8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
