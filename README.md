@@ -1,9 +1,7 @@
 # Predict-19
 
 <p align="center">
-  <a href="https://easybase.io">
-    <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo" width="80" height="80">
-  </a>
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo" width="80" height="80">
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/ID-B21--CAP0430-blue">
