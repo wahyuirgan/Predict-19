@@ -2,7 +2,8 @@ package academy.bangkit.predict19.ui.prediction
 
 import academy.bangkit.predict19.R
 import academy.bangkit.predict19.databinding.FragmentPredictionBinding
-import academy.bangkit.predict19.ui.ResultPredictActivity
+import academy.bangkit.predict19.network.ApiConfig
+import academy.bangkit.predict19.network.ApiService
 import android.Manifest
 import android.app.Activity
 import android.app.Activity.RESULT_OK
@@ -25,6 +26,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.IOException
 
 
@@ -67,9 +75,39 @@ class PredictionFragment : Fragment() {
             if (pickedImgUri == null) {
                 Toast.makeText(context, getString(R.string.notif_image_predict_not_picked), Toast.LENGTH_SHORT).show()
             } else {
-                val intent = Intent(context, ResultPredictActivity::class.java)
-                intent.putExtra("resId", pickedImgUri)
-                startActivity(intent)
+//                val intent = Intent(context, ResultPredictActivity::class.java)
+//                intent.putExtra("resId", pickedImgUri)
+//                startActivity(intent)
+
+                val service: ApiService = ApiConfig.getClient().create(ApiService::class.java)
+
+                val returnCursor: Cursor? = pickedImgUri?.let {
+                    context?.contentResolver?.query(
+                        it, null, null, null, null)
+                }
+                val nameIndex: Int? = returnCursor?.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                returnCursor?.moveToFirst()
+
+                val path: String = pickedImgUri.toString()
+//                val file = File(URI(path))
+
+                val reqFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), path)
+                val body = MultipartBody.Part.createFormData("image", nameIndex.toString(), reqFile)
+
+                val req: Call<ResponseBody> = service.uploadImage(body)
+                req.enqueue(object : Callback<ResponseBody> {
+                    override fun onResponse(
+                        call: Call<ResponseBody>,
+                        response: Response<ResponseBody>
+                    ) {
+                        binding?.tvPredictResult?.text = response.message()
+                    }
+
+                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                        t.printStackTrace()
+                    }
+                })
+
             }
 
         }

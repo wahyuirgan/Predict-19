@@ -337,7 +337,7 @@ class RegisterActivity : AppCompatActivity() {
             return result
         }
         val formatterOld = SimpleDateFormat("MMM dd, yyy", Locale.US)
-        val formatterNew = SimpleDateFormat("dd LLLL yyy", Locale.US)
+        val formatterNew = SimpleDateFormat("dd-MM-yyy", Locale.US)
         var date: Date? = null
         try {
             date = formatterOld.parse(dateString)
@@ -358,7 +358,7 @@ class RegisterActivity : AppCompatActivity() {
             return result
         }
         val formatterOld = SimpleDateFormat("dd MMM yyy", Locale.getDefault())
-        val formatterNew = SimpleDateFormat("dd LLLL yyy", Locale.getDefault())
+        val formatterNew = SimpleDateFormat("dd-MM-yyy", Locale.getDefault())
         var date: Date? = null
         try {
             date = formatterOld.parse(dateString)

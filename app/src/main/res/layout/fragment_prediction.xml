@@ -155,6 +155,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
+        <TextView
+            android:id="@+id/tvPredictResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10dp"
+            android:text="@string/label_no_data"
+            android:textSize="@dimen/text_size_20sp"
+            android:fontFamily="@font/montserrat_bold"
+            app:layout_constraintTop_toBottomOf="@+id/btnPredictImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
