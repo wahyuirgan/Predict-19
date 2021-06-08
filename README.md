@@ -5,6 +5,9 @@
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/ID-B21--CAP0430-blue">
+    <a href="https://github.com/wahyuirgan/Predict-19/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/wahyuirgan/Predict-19">
+    </a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -14,6 +17,7 @@
 * [How to Contribute](#how-to-contribute)
   * [Download or Clone](#download-or-clone)
   * [Fork Repository](#fork-repository)
+* [License](#license)
 * [Team Members](#team-members)
 
 <!-- ABOUT THE PROJECT -->
@@ -43,6 +47,10 @@ git push origin branch_two
 ```
 ### Fork Repository
 In order to duplicate our repository to become your repository on your own github account, you need to **fork** this repository. Forking repository allows you to modificate this project without affecting the original project.
+
+<!-- License -->
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Team Members
 |              Member              | Student ID |             Path             |             University            |
