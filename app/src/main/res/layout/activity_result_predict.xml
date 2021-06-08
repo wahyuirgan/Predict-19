@@ -41,8 +41,38 @@
         android:layout_margin="@dimen/margin_10dp"
         android:text="@string/label_no_data"
         android:textSize="@dimen/text_size_20sp"
+        android:textColor="@android:color/black"
         android:fontFamily="@font/montserrat_bold"
         app:layout_constraintTop_toBottomOf="@+id/ivImagePredict"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btnAnalysisPredict"
+        android:background="@color/colorTopCardLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_18pt"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_16dp"
+        android:text="@string/label_analysis"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="@dimen/text_size_14sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvPredictResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvPredictResultServer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10dp"
+        android:text="@string/label_no_data"
+        android:textSize="@dimen/text_size_20sp"
+        android:fontFamily="@font/montserrat_bold"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnalysisPredict"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 

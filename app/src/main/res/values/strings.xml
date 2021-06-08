@@ -79,4 +79,54 @@
     <string name="notif_accept">Accept</string>
     <string name="notif_in_development">Still in Development Stage</string>
     <string name="notif_image_predict_not_picked">You Must Pick Predict Image from Gallery or Camera</string>
+    <string name="text_positif"><![CDATA[You are <font color=#cc0029>Positive COVID</font>]]></string>
+    <string name="text_negatif"><![CDATA[You are <font color=#00FF00>Negative COVID</font>]]></string>
+    <string name="label_twenty_four_hours_oxygen">24 Hours</string>
+    <string name="label_fourty_eight_hours_oxygen">48 Hours</string>
+    <string name="label_seventy_two_hours_oxygen">72 Hours</string>
+    <string name="label_ninety_six_hours_oxygen">96 Hours</string>
+    <string name="label_analysis">Analysis</string>
+    <string name="text_pneumonia">You Have Pneumonia</string>
+    <string name="label_timestamp">dd LLLL yyy HH:mm:ss</string>
+    <string name="label_help">Are You Confused About using This Application? You Can Follow the Method Below</string>
+    <string name="label_help_title">How To Use?</string>
+    <string name="label_first_step">Click the Predict menu below</string>
+    <string name="label_second_step">Click the Select Image Button to Select an Available Photo or Click Photo with Camera if the Photo is Not Available in your Phone Gallery</string>
+    <string name="label_step_third">Click Predict Button</string>
+    <string name="label_step_fourth">Wait for a Moment</string>
+    <string name="label_fifth_step">Information Regarding Your Covid Status will Appear</string>
+    <string name="label_sixth">Click the Analyze Button to Find Out the Oxygen Strength Analysis</string>
+    <string name="label_pamflet_covid">Pamphlet Covid</string>
+    <string name="label_check_status">Let\'s Check your Status Covid in This App</string>
+
+    <string-array name="percent_first_tier_oxygen">
+        <item>5%</item>
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+    </string-array>
+
+    <string-array name="percent_second_tier_oxygen">
+        <item>25%</item>
+        <item>30%</item>
+        <item>35%</item>
+        <item>40%</item>
+    </string-array>
+
+    <string-array name="percent_third_tier_oxygen">
+        <item>45%</item>
+        <item>50%</item>
+        <item>55%</item>
+        <item>60%</item>
+        <item>65%</item>
+    </string-array>
+
+    <string-array name="percent_fourth_tier_oxygen">
+        <item>70%</item>
+        <item>75%</item>
+        <item>80%</item>
+        <item>85%</item>
+        <item>90%</item>
+    </string-array>
+
 </resources>

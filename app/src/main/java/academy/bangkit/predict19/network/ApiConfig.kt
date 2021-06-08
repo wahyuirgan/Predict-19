@@ -7,7 +7,7 @@ class ApiConfig {
 
     companion object {
 
-        var BASE_URL = "http://34.101.214.85:5000/"
+        var BASE_URL = "http://34.101.236.53:5000/"
 
         fun getClient(): Retrofit {
             return Retrofit.Builder()

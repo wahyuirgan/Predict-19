@@ -159,11 +159,29 @@
             android:id="@+id/tvPredictResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@android:style/Widget.EditText"
             android:layout_margin="@dimen/margin_10dp"
             android:text="@string/label_no_data"
             android:textSize="@dimen/text_size_20sp"
             android:fontFamily="@font/montserrat_bold"
+            android:visibility="invisible"
+            android:background="@android:color/transparent"
             app:layout_constraintTop_toBottomOf="@+id/btnPredictImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvPredictTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.EditText"
+            android:layout_margin="@dimen/margin_10dp"
+            android:text="@string/label_timestamp"
+            android:textSize="@dimen/text_size_20sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:visibility="invisible"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPredictResult"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 

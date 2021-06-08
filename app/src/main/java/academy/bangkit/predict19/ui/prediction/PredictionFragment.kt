@@ -4,7 +4,9 @@ import academy.bangkit.predict19.R
 import academy.bangkit.predict19.databinding.FragmentPredictionBinding
 import academy.bangkit.predict19.network.ApiConfig
 import academy.bangkit.predict19.network.ApiService
+import academy.bangkit.predict19.ui.ResultPredictActivity
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Context
@@ -34,8 +36,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
+@SuppressLint("SimpleDateFormat")
 class PredictionFragment : Fragment() {
 
     private var _binding: FragmentPredictionBinding? = null
@@ -75,10 +80,6 @@ class PredictionFragment : Fragment() {
             if (pickedImgUri == null) {
                 Toast.makeText(context, getString(R.string.notif_image_predict_not_picked), Toast.LENGTH_SHORT).show()
             } else {
-//                val intent = Intent(context, ResultPredictActivity::class.java)
-//                intent.putExtra("resId", pickedImgUri)
-//                startActivity(intent)
-
                 val service: ApiService = ApiConfig.getClient().create(ApiService::class.java)
 
                 val returnCursor: Cursor? = pickedImgUri?.let {
@@ -88,19 +89,41 @@ class PredictionFragment : Fragment() {
                 val nameIndex: Int? = returnCursor?.getColumnIndex(OpenableColumns.DISPLAY_NAME)
                 returnCursor?.moveToFirst()
 
-                val path: String = pickedImgUri.toString()
-//                val file = File(URI(path))
+                val inputStream = pickedImgUri?.let { imageUri ->
+                    context?.contentResolver?.openInputStream(
+                        imageUri
+                    )
+                }
 
-                val reqFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), path)
-                val body = MultipartBody.Part.createFormData("image", nameIndex.toString(), reqFile)
+                val reqFile: RequestBody? = inputStream?.readBytes()?.let { requestFile ->
+                    RequestBody.create("multipart/form-data".toMediaTypeOrNull(),
+                        requestFile
+                    )
+                }
+                val body = reqFile?.let { requestBody ->
+                    MultipartBody.Part.createFormData("image", nameIndex.toString(),
+                        requestBody
+                    )
+                }
 
-                val req: Call<ResponseBody> = service.uploadImage(body)
-                req.enqueue(object : Callback<ResponseBody> {
+                val sdf = SimpleDateFormat("dd-MM-yyy hh:mm:ss")
+                val timestamp = sdf.format(Date())
+
+                val req: Call<ResponseBody>? = body?.let { callBody -> service.uploadImage(callBody) }
+                req?.enqueue(object : Callback<ResponseBody> {
                     override fun onResponse(
                         call: Call<ResponseBody>,
                         response: Response<ResponseBody>
                     ) {
-                        binding?.tvPredictResult?.text = response.message()
+                        binding?.tvPredictResult?.text = response.body()?.string()
+                        binding?.tvPredictTimestamp?.text = timestamp
+
+                        val predictResult: String = binding?.tvPredictResult?.text.toString()
+
+                        val intent = Intent(context, ResultPredictActivity::class.java)
+                        intent.putExtra("resId", pickedImgUri)
+                        intent.putExtra("predictResult", predictResult)
+                        startActivity(intent)
                     }
 
                     override fun onFailure(call: Call<ResponseBody>, t: Throwable) {

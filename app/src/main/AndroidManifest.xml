@@ -45,6 +45,10 @@
         <activity
             android:name=".ui.ResultPredictActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".ui.OxygenPredictActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppThemeNoActionBar"/>
         <activity
             android:name="com.canhub.cropper.CropImageActivity"
