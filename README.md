@@ -5,7 +5,9 @@
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/ID-B21--CAP0430-blue">
-    <img src="https://img.shields.io/github/license/wahyuirgan/Predict-19">
+    <a href="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/LICENSE">
+      <img src="https://img.shields.io/github/license/wahyuirgan/Predict-19">
+    </a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
