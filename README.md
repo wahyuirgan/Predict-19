@@ -1,7 +1,7 @@
 # Predict-19
 
 <p align="center">
-  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo" width="80" height="80">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo">
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/ID-B21--CAP0430-blue">
@@ -17,6 +17,7 @@
 * [How to Contribute](#how-to-contribute)
   * [Download or Clone](#download-or-clone)
   * [Fork Repository](#fork-repository)
+* [Screenshoot](#screenshoot)
 * [License](#license)
 * [Team Members](#team-members)
 
@@ -47,6 +48,21 @@ git push origin branch_two
 ```
 ### Fork Repository
 In order to duplicate our repository to become your repository on your own github account, you need to **fork** this repository. Forking repository allows you to modificate this project without affecting the original project.
+
+<!-- Screenshoot -->
+## Screenshoot
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/splash%20screen.png" alt="splash screen">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/login.png" alt="login">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/register_page1.png" alt="resgister slide 1"><br>
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/register_page2.png" alt="register slide 2">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/home.png" alt="home">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/help.png" alt="help"><br>
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/account.png" alt="account">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/predict.png" alt="predict">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/choose%20image.png" alt="choose image"><br>
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/covid%20predict.png" alt="covid predict">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/positive%20covid%20result.png" alt="positive covid result">
+<img src="https://github.com/wahyuirgan/Predict-19/blob/main/screenshoot/positive%20covid%20result%20oxygen%20strength.png" alt="positif covid result oxygen strength">
 
 <!-- License -->
 ## License
