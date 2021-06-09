@@ -1,7 +1,7 @@
 # Predict-19
 
 <p align="center">
-  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo" width="80" height="80">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo">
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/ID-B21--CAP0430-blue">
@@ -17,6 +17,7 @@
 * [How to Contribute](#how-to-contribute)
   * [Download or Clone](#download-or-clone)
   * [Fork Repository](#fork-repository)
+* [Screenshoot](#screenshoot)
 * [License](#license)
 
 <!-- ABOUT THE PROJECT -->
@@ -46,6 +47,23 @@ git push origin branch_two
 ```
 ### Fork Repository
 In order to duplicate our repository to become your repository on your own github account, you need to **fork** this repository. Forking repository allows you to modificate this project without affecting the original project.
+
+<!-- Screenshoot -->
+## Screenshoot
+<p align="center">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/splash%20screen.png" alt="splash screen" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/login.png" alt="login" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/register_page1.png" alt="resgister slide 1" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/register_page2.png" alt="register slide 2" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/home.png" alt="home" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/help.png" alt="help" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/account.png" alt="account" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/predict.png" alt="predict" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/choose%20image.png" alt="choose image" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/covid%20predict.png" alt="covid predict" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/positive%20covid%20result.png" alt="positive covid result" style="margin-right: 10px;" width="150">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/screenshoot/positive%20covid%20result%20oxygen%20strength.png" alt="positif covid result oxygen strength" style="margin-right: 10px;" width="150">
+</p>
 
 <!-- License -->
 ## License
