@@ -1,7 +1,7 @@
 # Predict-19
 
 <p align="center">
-  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo" width="100" height="100">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/mobile-dev/app/src/main/ic_launcher-playstore.png" alt="predict 19 logo" width="200" height="200">
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/ID-B21--CAP0430-blue">
