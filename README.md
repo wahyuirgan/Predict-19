@@ -80,4 +80,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 |      Muhammad Haidar Fahmi       |  C2242176  |       Cloud Computing        |  UIN Syarif Hidayatullah Jakarta  |
 |       Risyadhana Syaifuddin      |  C2242151  |       Cloud Computing        |  UIN Syarif Hidayatullah Jakarta  |
 
-
+<p align="center">
+  <img src="https://github.com/wahyuirgan/Predict-19/blob/main/Google%20Bangkit%202021.jpeg" alt="Google Bangkit 2021">
+</p>
